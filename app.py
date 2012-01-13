@@ -36,7 +36,7 @@ def speaker():
     return flask.render_template('client.html', token=token)
 
 @app.route('/tunes')
-def tunes()
+def tunes():
     response = twiml.Response()
     response.play("http://demo.brooklynhacker.com/music/ramones.mp3")
     return str(response)
