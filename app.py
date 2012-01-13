@@ -14,7 +14,7 @@ def karaoke():
 
 @app.route('/mic')
 def mic():
-    capability = TwilioCapability(os.environ.get('ACCOUNT_SID'),
+    capability = TwilioCapability(os.environ.get('ACCOUNT_SID'), 
             os.environ.get('AUTH_TOKEN'))
     capability.allow_client_outgoing('AP2b4a0d70f02c4088b92f064607a95025')
     token = capability.generate()
@@ -28,6 +28,7 @@ def muted():
     return str(response)
 
 @app.route('/speaker')
+    capability = TwilioCapability(os.environ.get('ACCOUNT_SID'), 
             os.environ.get('AUTH_TOKEN'))
     capability.allow_client_outgoing(os.environ.get('SPEAKER_APP_SID'))
     token = capability.generate()
