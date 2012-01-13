@@ -35,6 +35,12 @@ def speaker():
     token = capability.generate()
     return flask.render_template('client.html', token=token)
 
+@app.route('/tunes')
+def tunes()
+    response = twiml.Response()
+    response.play("http://demo.brooklynhacker.com/music/ramones.mp3")
+    return str(response)
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.debug = True
