@@ -5,7 +5,7 @@ import os
 
 app = flask.Flask(__name__)
 
-@app.route('/karaoke')
+@app.route('/karaoke', methods=['POST'])
 def karaoke():
     response = twiml.Response()
     with response.dial() as dial:
