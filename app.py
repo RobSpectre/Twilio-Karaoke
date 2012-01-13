@@ -13,7 +13,7 @@ def karaoke():
     return str(response)
 
 @app.route('/mic')
-def mic()
+def mic():
     capability = TwilioCapability(os.environ.get('ACCOUNT_SID'),
             os.environ.get('AUTH_TOKEN'))
     capability.allow_outgoing(os.environ.get('SPEAKER_CALLER_ID'))
