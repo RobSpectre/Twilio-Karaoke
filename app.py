@@ -28,6 +28,7 @@ def muted():
     return str(response)
 
 @app.route('/speaker')
+def speaker():
     capability = TwilioCapability(os.environ.get('ACCOUNT_SID'), 
             os.environ.get('AUTH_TOKEN'))
     capability.allow_client_outgoing(os.environ.get('SPEAKER_APP_SID'))
