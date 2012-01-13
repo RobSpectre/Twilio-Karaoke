@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twilio Karaoke</title>
+    <script type="text/javascript"
+      src="http://static.twilio.com/libs/twiliojs/1.0/twilio.min.js"></script>
+    <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+    </script>
+    <link href="http://static0.twilio.com/packages/quickstart/client.css"
+      type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+ 
+      Twilio.Device.setup("{{token}}");
+ 
+      Twilio.Device.ready(function (device) {
+        $("#log").text("Ready");
+      });
+ 
+      Twilio.Device.error(function (error) {
+        $("#log").text("Error: " + error.message);
+      });
+ 
+      Twilio.Device.connect(function (conn) {
+        $("#log").text("Successfully established call");
+      });
+ 
+      Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+      });
+ 
+      function call() {
+        Twilio.Device.connect();
+      }
+ 
+      function hangup() {
+        Twilio.Device.disconnectAll();
+      }
+    </script>
+  </head>
+  <body>
+    <button class="call" onclick="call();">
+      Call
+    </button>
+ 
+    <button class="hangup" onclick="hangup();">
+      Hangup
+    </button>
+ 
+    <div id="log">Loading pigeons...</div>
+  </body>
+</html>
