@@ -5,18 +5,18 @@ import os
 
 app = flask.Flask(__name__)
 
-@app.route('/karaoke', methods=['POST'])
+@app.route('/karaoke')
 def karaoke():
     response = twiml.Response()
     with response.dial() as dial:
-        dial.conference("PennApps Karaoke Party Extravamagasma")
+        dial.conference("Penn Apps Karaoke Extravamagasma")
     return str(response)
 
 @app.route('/mic')
 def mic():
     capability = TwilioCapability(os.environ.get('ACCOUNT_SID'),
             os.environ.get('AUTH_TOKEN'))
-    capability.allow_client_outgoing('AP94f2131e91ec4482b835d6d81fac732f')
+    capability.allow_client_outgoing('APc0af6dfc68494a3b82547842c9fb2f2b')
     token = capability.generate()
     return flask.render_template('client.html', token=token)
 
