@@ -20,6 +20,21 @@ def mic():
     token = capability.generate()
     return flask.render_template('client.html', token=token)
 
+@app.route('/muted', methods=['POST'])
+def muted():
+    response = twiml.Response()
+    with response.dial() as dial:
+        dial.conference("Penn Apps Karaoke Extravamagasma", muted=True)
+    return str(response)
+
+@app.route('/speaker')
+def speaker():
+    capability = TwilioCapability(os.environ.get('ACCOUNT_SID'),
+            os.environ.get('AUTH_TOKEN'))
+    capability.allow_client_outgoing(os.environ.get('SPEAKER_APP_SID'))
+    token = capability.generate()
+    return flask.render_template('client.html', token=token)
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.debug = True
