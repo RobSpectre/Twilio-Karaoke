@@ -9,3 +9,4 @@ lib
 *.pyo
 *.mp3
 local_settings.py
+promo.py
