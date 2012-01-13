@@ -8,8 +8,9 @@ app = flask.Flask(__name__)
 def karaoke():
     response = twiml.Response()
     with response.dial() as dial:
-        dial.conference("Penn Apps Karaoke Party")
+        dial.conference('PennApps Karaoke Party')
     return str(response)
 
 if __name__ == "__main__":
-    app.run('0.0.0.0', 5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
