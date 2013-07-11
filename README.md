@@ -126,3 +126,7 @@ be able to run this project.
 Yes, this is what I do for a living.
 
 Want to do it too?  [We're hiring.](http://www.twilio.com/jobs)
+
+[![githalytics.com
+alpha](https://cruel-carlota.pagodabox.com/4107c012166d2fb56494d8a607bf0231
+"githalytics.com")](http://githalytics.com/RobSpectre/Twilio-Karaoke)
